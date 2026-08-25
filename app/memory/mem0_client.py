@@ -391,5 +391,5 @@ class Mem0Client:
         """
 
         return self.get_all_memory(
-            "user_id": user_id,
+            "user_id"==user_id,
         )
