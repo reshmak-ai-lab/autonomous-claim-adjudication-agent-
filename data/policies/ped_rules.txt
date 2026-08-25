@@ -1,0 +1,34 @@
+PRE-EXISTING DISEASE RULES
+========================================
+
+PED Waiting Period:
+36 months.
+
+A condition that existed before policy inception may qualify as
+a pre-existing disease depending on the policy definition.
+
+The presence of a PED does not automatically mean the current
+claim must be rejected.
+
+The adjudication system must determine:
+
+1. Whether the condition existed before policy inception.
+2. Whether it was disclosed.
+3. Whether it falls within the waiting period.
+4. Whether the condition is medically related to the current claim.
+5. Whether the policy contains a specific exclusion.
+6. Whether additional medical evidence is required.
+
+Example:
+
+Policy age = 14 months
+PED waiting period = 36 months
+
+If a relevant PED existed before policy inception, the PED waiting
+period has not yet completed.
+
+However, the system must establish medical relevance before
+applying a PED-based adverse decision.
+
+If evidence is insufficient:
+Decision = HUMAN_REVIEW

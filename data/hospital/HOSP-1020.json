@@ -1,0 +1,12 @@
+{
+  "hospital_id": "HOSP-1020",
+  "hospital_name": "GreenLife Hospital",
+  "network_status": "ACTIVE",
+  "city": "Chennai",
+  "claims_last_30_days": 42,
+  "average_claim_value": 65000,
+  "average_appendectomy_stay_days": 1.8,
+  "duplicate_billing_alerts": 0,
+  "previous_investigation_cases": 0,
+  "recent_rejection_rate": 0.05
+}

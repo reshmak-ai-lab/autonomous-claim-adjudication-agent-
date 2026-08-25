@@ -1,0 +1,64 @@
+fraud_rules:
+
+  duplicate_claim:
+    enabled: true
+    weight: 0.30
+
+  duplicate_invoice:
+    enabled: true
+    weight: 0.25
+
+  abnormal_bill_amount:
+    enabled: true
+    weight: 0.15
+
+  clinical_billing_mismatch:
+    enabled: true
+    weight: 0.25
+
+  excessive_length_of_stay:
+    enabled: true
+    weight: 0.15
+
+  unusual_procedure:
+    enabled: true
+    weight: 0.20
+
+  repeated_claim_pattern:
+    enabled: true
+    weight: 0.20
+
+  suspicious_document:
+    enabled: true
+    weight: 0.25
+
+  timeline_inconsistency:
+    enabled: true
+    weight: 0.20
+
+
+risk_levels:
+
+  low:
+    minimum_score: 0.00
+    maximum_score: 0.29
+
+  medium:
+    minimum_score: 0.30
+    maximum_score: 0.59
+
+  high:
+    minimum_score: 0.60
+    maximum_score: 1.00
+
+
+actions:
+
+  low:
+    action: "continue_adjudication"
+
+  medium:
+    action: "enhanced_review"
+
+  high:
+    action: "human_review"

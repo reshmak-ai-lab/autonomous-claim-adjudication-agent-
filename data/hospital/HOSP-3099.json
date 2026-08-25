@@ -1,0 +1,12 @@
+{
+  "hospital_id": "HOSP-3099",
+  "hospital_name": "Metro Advanced Care",
+  "network_status": "ACTIVE",
+  "city": "Chennai",
+  "claims_last_30_days": 125,
+  "average_claim_value": 81000,
+  "average_cholecystectomy_stay_days": 2.1,
+  "duplicate_billing_alerts": 9,
+  "previous_investigation_cases": 4,
+  "recent_rejection_rate": 0.29
+}

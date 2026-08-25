@@ -1,0 +1,49 @@
+ULTRASOUND ABDOMEN REPORT
+========================================
+
+Hospital ID: HOSP-3099
+Patient ID: PAT-10077
+Patient Name: Arjun Rao
+Age: 51 years
+Gender: Male
+
+Date of Examination: 2026-08-14
+
+CLINICAL HISTORY
+----------------
+Patient with abdominal pain. Evaluation requested for suspected
+gall bladder disease.
+
+FINDINGS
+--------
+Liver:
+Normal size and echotexture.
+
+Gall Bladder:
+Multiple gallstones are identified.
+Largest calculus approximately 8 mm.
+
+Gall bladder wall:
+No significant wall thickening identified.
+
+Pericholecystic fluid:
+Not demonstrated.
+
+Common Bile Duct:
+Normal caliber.
+
+Pancreas:
+No significant abnormality identified in visualized portions.
+
+IMPRESSION
+----------
+1. Cholelithiasis.
+2. No definite sonographic evidence of acute cholecystitis.
+3. No biliary obstruction.
+
+RECOMMENDATION
+--------------
+Clinical correlation recommended.
+
+========================================
+END OF REPORT

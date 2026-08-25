@@ -1,0 +1,27 @@
+{
+  "procedures": {
+    "Laparoscopic Cholecystectomy": {
+      "typical_min": 65000,
+      "typical_max": 110000,
+      "typical_stay_days": 1,
+      "extended_stay_threshold_days": 3
+    },
+    "Laparoscopic Appendectomy": {
+      "typical_min": 50000,
+      "typical_max": 85000,
+      "typical_stay_days": 1,
+      "extended_stay_threshold_days": 3
+    }
+  },
+
+  "room_rates": {
+    "standard_private": {
+      "min": 3500,
+      "max": 6000
+    },
+    "premium_private": {
+      "min": 6000,
+      "max": 12000
+    }
+  }
+}

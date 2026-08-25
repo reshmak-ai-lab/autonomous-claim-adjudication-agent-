@@ -1,0 +1,12 @@
+{
+  "hospital_id": "HOSP-2048",
+  "hospital_name": "CityCare Multispeciality Hospital",
+  "network_status": "ACTIVE",
+  "city": "Chennai",
+  "claims_last_30_days": 87,
+  "average_claim_value": 72000,
+  "average_cholecystectomy_stay_days": 1.7,
+  "duplicate_billing_alerts": 3,
+  "previous_investigation_cases": 1,
+  "recent_rejection_rate": 0.18
+}

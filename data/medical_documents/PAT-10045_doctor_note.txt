@@ -1,0 +1,53 @@
+INPATIENT / SURGICAL CONSULTATION NOTE
+========================================
+
+Hospital ID: HOSP-2048
+Patient ID: PAT-10045
+Patient Name: Ravi Sharma
+Age: 48 years
+
+Date: 2026-08-15
+
+CHIEF COMPLAINT
+---------------
+Recurrent right upper quadrant abdominal pain for approximately
+three weeks.
+
+HISTORY
+-------
+Patient reports recurrent abdominal discomfort after fatty meals.
+
+Known medical history:
+- Hypertension
+- No documented diabetes
+- No previous abdominal surgery
+
+Ultrasound demonstrates multiple gall bladder calculi.
+
+EXAMINATION
+-----------
+Patient conscious and oriented.
+
+Abdomen:
+Mild right upper quadrant tenderness.
+No generalized guarding.
+
+ASSESSMENT
+----------
+Symptomatic cholelithiasis.
+
+PLAN
+----
+1. Surgical consultation completed.
+2. Laparoscopic cholecystectomy discussed.
+3. Patient consented to planned procedure.
+4. Pre-operative investigations requested.
+5. Expected hospitalization: approximately 1-3 days.
+
+MEDICAL NECESSITY
+-----------------
+Surgical treatment may be medically appropriate due to recurrent
+symptomatic gallstone episodes.
+
+========================================
+END OF NOTE

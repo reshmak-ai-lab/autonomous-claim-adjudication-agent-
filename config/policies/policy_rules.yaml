@@ -1,0 +1,50 @@
+policy:
+  policy_type: "Standard Retail Health Policy"
+
+  currency: "INR"
+
+  sum_insured:
+    default: 500000
+
+  room_rent:
+    limit_type: "percentage_or_fixed"
+    percentage: 1.0
+    fixed_limit_per_day: 5000
+
+  icu:
+    percentage_of_sum_insured: 2.0
+    fixed_limit_per_day: 10000
+
+  copay:
+    applicable: false
+    percentage: 0
+
+  deductible:
+    applicable: false
+    amount: 0
+
+  claim_rules:
+
+    hospitalization:
+      minimum_days: 1
+
+    pre_hospitalization:
+      covered: true
+      days: 30
+
+    post_hospitalization:
+      covered: true
+      days: 60
+
+    day_care:
+      covered: true
+
+  policy_status:
+    active_required: true
+
+  claim_settlement:
+    maximum_payable:
+      type: "sum_insured"
+
+  room_rent_proportional_deduction:
+    enabled: true

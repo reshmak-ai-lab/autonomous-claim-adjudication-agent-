@@ -1,0 +1,28 @@
+{
+  "test_cases": [
+    {
+      "id": "ADJ-001",
+      "claim_id": "CLM-2026-01012",
+      "expected_decision": "APPROVE",
+      "expected_human_review": false
+    },
+    {
+      "id": "ADJ-002",
+      "claim_id": "CLM-2026-00981",
+      "expected_decision": "PARTIAL_APPROVAL",
+      "expected_human_review": true
+    },
+    {
+      "id": "ADJ-003",
+      "claim_id": "CLM-2026-01120",
+      "expected_decision": "REJECT",
+      "expected_human_review": false
+    },
+    {
+      "id": "ADJ-004",
+      "claim_id": "CLM-2026-01035",
+      "expected_decision": "HUMAN_REVIEW",
+      "expected_human_review": true
+    }
+  ]
+}

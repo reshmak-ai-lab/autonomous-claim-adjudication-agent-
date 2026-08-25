@@ -1,0 +1,104 @@
+{
+  "claim_id": "CLM-2026-00981",
+
+  "patient_id": "PAT-10045",
+
+  "policy_id": "POL-HLTH-784521",
+
+  "hospital_id": "HOSP-2048",
+
+  "admission_id": "ADM-2026-08451",
+
+  "claim_type": "cashless_pre_authorization",
+
+  "patient": {
+    "age": 48,
+    "gender": "Male",
+    "pre_existing_conditions": [
+      {
+        "condition": "Hypertension",
+        "disclosed_months_ago": 6
+      }
+    ]
+  },
+
+  "admission": {
+    "date": "2026-08-15",
+    "expected_discharge": "2026-08-18",
+    "emergency": false
+  },
+
+  "diagnosis": {
+    "name": "Cholelithiasis",
+    "icd10": "K80.20"
+  },
+
+  "procedure": {
+    "name": "Laparoscopic Cholecystectomy"
+  },
+
+  "room": {
+    "daily_rate": 8000,
+    "policy_limit": 5000,
+    "days": 3
+  },
+
+  "financials": {
+    "room_charges": 24000,
+    "surgeon_fee": 35000,
+    "anesthetist_fee": 12000,
+    "ot_charges": 18000,
+    "medicines": 9500,
+    "diagnostics": 6500,
+    "nursing": 3000,
+    "medical_consumables": 8000,
+    "non_medical_consumables": 12000,
+    "miscellaneous": 2000,
+    "requested_amount": 130000
+  },
+
+  "historical_claims": {
+    "similar_claims_count": 3,
+    "prior_claims": [
+      {
+        "claim_id": "CLM-2026-00642",
+        "diagnosis": {
+          "name": "Acute Abdominal Pain",
+          "icd10": "R10.9"
+        },
+        "procedure": {
+          "name": "Abdominal Ultrasound"
+        },
+        "claimed_amount": 42000
+      },
+      {
+        "claim_id": "CLM-2026-00791",
+        "diagnosis": {
+          "name": "Cholelithiasis",
+          "icd10": "K80.20"
+        },
+        "procedure": {
+          "name": "Abdominal Ultrasound"
+        },
+        "claimed_amount": 46000
+      }
+    ]
+  },
+
+  "documents": [
+    "pre_authorization_form",
+    "ultrasound_report",
+    "blood_report",
+    "doctor_note",
+    "hospital_estimate"
+  ],
+
+  "expected_result": {
+    "decision": "PARTIAL_APPROVAL",
+    "fraud_risk": "MEDIUM",
+    "ped_risk": "MEDIUM",
+    "room_rent_exceeded": true,
+    "non_medical_expense_present": true,
+    "human_review_required": true
+  }
+}

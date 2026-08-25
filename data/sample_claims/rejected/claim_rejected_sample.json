@@ -1,0 +1,38 @@
+{
+  "claim_id": "CLM-2026-01120",
+  "patient_id": "PAT-10110",
+  "policy_id": "POL-HLTH-786200",
+  "hospital_id": "HOSP-1020",
+
+  "policy": {
+    "status": "ACTIVE",
+    "policy_start_date": "2026-07-01",
+    "waiting_period_days": 30
+  },
+
+  "admission": {
+    "date": "2026-07-10"
+  },
+
+  "diagnosis": {
+    "name": "Cosmetic Rhinoplasty"
+  },
+
+  "procedure": {
+    "name": "Elective Cosmetic Rhinoplasty"
+  },
+
+  "medical_necessity": {
+    "supported": false,
+    "reason": "Procedure documented as cosmetic with no reconstructive or medically necessary indication."
+  },
+
+  "requested_amount": 145000,
+
+  "expected_result": {
+    "decision": "REJECT",
+    "reason_code": "POLICY_EXCLUSION_COSMETIC",
+    "fraud_risk": "LOW",
+    "human_review_required": false
+  }
+}

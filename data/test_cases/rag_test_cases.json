@@ -1,0 +1,39 @@
+{
+  "test_cases": [
+    {
+      "id": "RAG-001",
+      "question": "What is the maximum room rent for a policy with ₹5,00,000 sum insured?",
+      "expected_source": "room_rent_rules.txt",
+      "expected_answer_contains": [
+        "₹5,000",
+        "1%"
+      ]
+    },
+    {
+      "id": "RAG-002",
+      "question": "What is the PED waiting period?",
+      "expected_source": "ped_rules.txt",
+      "expected_answer_contains": [
+        "36 months"
+      ]
+    },
+    {
+      "id": "RAG-003",
+      "question": "Are non-medical consumables payable?",
+      "expected_source": "exclusions.txt",
+      "expected_answer_contains": [
+        "not payable"
+      ]
+    },
+    {
+      "id": "RAG-004",
+      "question": "When should a claim be sent for human review?",
+      "expected_source": "claim_adjudication_rules.txt",
+      "expected_answer_contains": [
+        "HUMAN_REVIEW",
+        "contradict",
+        "fraud"
+      ]
+    }
+  ]
+}

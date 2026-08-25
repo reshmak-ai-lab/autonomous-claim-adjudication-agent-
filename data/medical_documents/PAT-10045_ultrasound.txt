@@ -1,0 +1,53 @@
+ULTRASOUND WHOLE ABDOMEN REPORT
+========================================
+
+Hospital ID: HOSP-2048
+Patient ID: PAT-10045
+Patient Name: Ravi Sharma
+Age: 48 years
+Gender: Male
+
+Date of Examination: 2026-08-14
+Referring Physician: Dr. Neha Iyer
+
+CLINICAL HISTORY
+----------------
+Patient presents with intermittent right upper abdominal pain,
+especially after meals. History of hypertension is documented.
+
+FINDINGS
+--------
+Liver:
+Normal size and echotexture. No focal lesion identified.
+
+Gall Bladder:
+Multiple calculi are visualized within the gall bladder.
+Largest calculus measures approximately 9 mm.
+Gall bladder wall is not significantly thickened.
+
+Common Bile Duct:
+Normal caliber.
+
+Pancreas:
+Visualized portions appear normal.
+
+Spleen:
+Normal size and echotexture.
+
+Kidneys:
+Both kidneys are normal in size.
+No hydronephrosis or renal calculus identified.
+
+IMPRESSION
+----------
+1. Multiple gall bladder calculi.
+2. No significant gall bladder wall thickening.
+3. No biliary obstruction identified.
+
+RECOMMENDATION
+--------------
+Clinical correlation recommended.
+Surgical consultation may be considered if symptoms persist.
+
+========================================
+END OF REPORT

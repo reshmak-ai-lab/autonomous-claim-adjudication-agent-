@@ -1,0 +1,46 @@
+{
+  "claim_id": "CLM-2026-01035",
+  "patient_id": "PAT-10077",
+  "policy_id": "POL-HLTH-785120",
+  "hospital_id": "HOSP-3099",
+
+  "admission": {
+    "date": "2026-08-14",
+    "expected_discharge": "2026-08-20",
+    "emergency": true
+  },
+
+  "diagnosis": {
+    "name": "Acute Cholecystitis",
+    "icd10": "K80.00"
+  },
+
+  "procedure": {
+    "name": "Laparoscopic Cholecystectomy"
+  },
+
+  "financials": {
+    "room_rate_per_day": 15000,
+    "length_of_stay_days": 6,
+    "requested_amount": 245000
+  },
+
+  "historical_claims": {
+    "similar_claims_count": 3
+  },
+
+  "fraud_indicators": [
+    "HIGH_CLAIM_VALUE",
+    "EXTENDED_STAY",
+    "DUPLICATE_BILLING_INDICATOR",
+    "REPEATED_SIMILAR_CLAIMS"
+  ],
+
+  "document_consistency": false,
+
+  "expected_result": {
+    "decision": "HUMAN_REVIEW",
+    "fraud_risk": "HIGH",
+    "human_review_required": true
+  }
+}

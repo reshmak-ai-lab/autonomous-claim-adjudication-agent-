@@ -1,0 +1,52 @@
+CLAIM ADJUDICATION RULES
+========================================
+
+APPROVE
+-------
+Use APPROVE when:
+
+- Policy is active.
+- Treatment is covered.
+- Medical necessity is supported.
+- Required documents are available.
+- No applicable exclusion is identified.
+- No material contradiction exists.
+- Fraud risk is low.
+- Financial calculations are within policy limits.
+
+PARTIAL_APPROVAL
+----------------
+Use PARTIAL_APPROVAL when:
+
+- The primary treatment is covered.
+- Some expenses are excluded or restricted.
+- Room-rent limits cause deductions.
+- Non-medical expenses are present.
+- Deductibles or co-payment reduce the payable amount.
+
+REJECT
+------
+Use REJECT only when:
+
+- The treatment is clearly excluded.
+- The policy is inactive.
+- The claim clearly falls within an applicable exclusion.
+- Required coverage conditions are not satisfied.
+
+HUMAN_REVIEW
+------------
+Use HUMAN_REVIEW when:
+
+- Medical documents contradict one another.
+- PED applicability is uncertain.
+- Fraud risk is high.
+- Duplicate billing is suspected.
+- Medical necessity is uncertain.
+- Material financial anomalies exist.
+- Required evidence is incomplete.
+- Model confidence is below the configured threshold.
+
+IMPORTANT:
+A fraud signal alone must not automatically result in rejection.
+
+All adverse decisions must be supported by evidence.

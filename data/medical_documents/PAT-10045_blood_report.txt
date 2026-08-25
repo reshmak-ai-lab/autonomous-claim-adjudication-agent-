@@ -1,0 +1,50 @@
+LABORATORY BLOOD INVESTIGATION REPORT
+========================================
+
+Hospital ID: HOSP-2048
+Patient ID: PAT-10045
+Patient Name: Ravi Sharma
+Age: 48 years
+Gender: Male
+
+Sample Date: 2026-08-14
+
+TEST RESULTS
+------------
+
+Complete Blood Count:
+
+Hemoglobin             : 13.8 g/dL
+Total WBC Count        : 8,900 /µL
+Platelet Count         : 2.45 lakh /µL
+
+Liver Function Tests:
+
+Total Bilirubin        : 1.1 mg/dL
+Direct Bilirubin       : 0.3 mg/dL
+AST                    : 31 U/L
+ALT                    : 35 U/L
+Alkaline Phosphatase   : 108 U/L
+
+Renal Function:
+
+Creatinine             : 0.9 mg/dL
+Blood Urea             : 26 mg/dL
+
+Blood Glucose:
+
+Random Blood Sugar     : 118 mg/dL
+
+Inflammatory Marker:
+
+CRP                    : 4.2 mg/L
+
+INTERPRETATION
+--------------
+Laboratory parameters are generally within expected limits.
+No significant leukocytosis is identified.
+
+Clinical correlation is advised.
+
+========================================
+END OF REPORT

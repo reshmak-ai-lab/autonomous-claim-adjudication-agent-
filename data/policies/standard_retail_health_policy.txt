@@ -1,0 +1,46 @@
+STANDARD RETAIL HEALTH POLICY
+========================================
+
+Policy Name:
+Standard Retail Health Policy
+
+Policy Type:
+Individual Retail Health Insurance
+
+Policy Status:
+Active
+
+Base Sum Insured:
+₹5,00,000
+
+Room Rent Limit:
+1% of Sum Insured per day
+
+Maximum Room Rent:
+₹5,000 per day
+
+Pre-Existing Disease (PED) Waiting Period:
+36 months
+
+Co-Payment:
+10% where applicable
+
+Network Hospital:
+Covered subject to policy terms
+
+Cashless Treatment:
+Available at approved network hospitals.
+
+Hospitalization:
+Hospitalization expenses are payable when medically necessary
+and covered under the policy.
+
+Pre-Authorization:
+Cashless hospitalization requires pre-authorization where applicable.
+
+Important:
+All claims are subject to policy exclusions, waiting periods,
+deductibles, co-payment, room-rent restrictions, non-payable items,
+and applicable policy terms.
+
+The final claim decision must be based on verified evidence.

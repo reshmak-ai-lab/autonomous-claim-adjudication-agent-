@@ -1,0 +1,51 @@
+non_payable_items:
+
+  - code: NM001
+    category: "Non-medical"
+    description: "Registration charges"
+    payable: false
+
+  - code: NM002
+    category: "Non-medical"
+    description: "Admission file charges"
+    payable: false
+
+  - code: NM003
+    category: "Non-medical"
+    description: "Administrative charges"
+    payable: false
+
+  - code: NM004
+    category: "Non-medical"
+    description: "Patient attendant charges"
+    payable: false
+
+  - code: NM005
+    category: "Non-medical"
+    description: "Food charges for attendant"
+    payable: false
+
+  - code: NM006
+    category: "Non-medical"
+    description: "Personal convenience items"
+    payable: false
+
+  - code: NM007
+    category: "Non-medical"
+    description: "Toiletries"
+    payable: false
+
+  - code: NM008
+    category: "Non-medical"
+    description: "Telephone charges"
+    payable: false
+
+  - code: NM009
+    category: "Non-medical"
+    description: "TV / entertainment charges"
+    payable: false
+
+  - code: NM010
+    category: "Non-medical"
+    description: "Disposable/non-medical consumables"
+    payable: false

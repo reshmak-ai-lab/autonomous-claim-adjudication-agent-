@@ -1,0 +1,14 @@
+[project]
+name = "autonomous-claim-adjudication-agent"
+version = "0.1.0"
+description = "Autonomous Claim Adjudication Agent"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+markers = [
+    "unit: unit tests",
+    "integration: integration tests",
+    "evaluation: evaluation tests",
+]

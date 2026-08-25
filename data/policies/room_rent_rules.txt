@@ -1,0 +1,33 @@
+ROOM RENT RULES
+========================================
+
+Room rent limit:
+1% of Sum Insured per day.
+
+Example:
+
+Sum Insured = ₹5,00,000
+
+Maximum Room Rent:
+₹5,00,000 × 1% = ₹5,000/day
+
+If the insured selects a room costing more than the applicable
+room-rent limit, the claim engine must identify the excess amount.
+
+Example:
+
+Actual Room Rent = ₹8,000/day
+Eligible Room Rent = ₹5,000/day
+Excess = ₹3,000/day
+
+For 3 days:
+
+Actual = ₹24,000
+Eligible = ₹15,000
+Excess = ₹9,000
+
+Where applicable, proportionate deductions on associated charges
+must be calculated according to the policy terms.
+
+The LLM must not independently calculate the final payable amount.
+The deterministic claim calculation engine must perform the calculation.

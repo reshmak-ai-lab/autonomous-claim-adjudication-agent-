@@ -1,0 +1,61 @@
+EMERGENCY DEPARTMENT AND SURGICAL REPORT
+========================================
+
+Hospital ID: HOSP-1020
+Patient ID: PAT-10062
+Patient Name: Priya Menon
+Age: 32 years
+Gender: Female
+
+Date: 2026-08-16
+
+PRESENTING COMPLAINT
+--------------------
+Acute abdominal pain beginning approximately 12 hours prior
+to hospital presentation.
+
+Associated symptoms:
+- Nausea
+- Loss of appetite
+- Low-grade fever
+
+CLINICAL EXAMINATION
+--------------------
+Temperature: 38.1°C
+
+Abdominal examination:
+- Right lower quadrant tenderness
+- Localized guarding
+- Positive McBurney tenderness
+
+LABORATORY FINDINGS
+-------------------
+WBC Count: 14,800 /µL
+CRP: Elevated
+
+IMAGING
+-------
+Ultrasound/CT findings are suggestive of acute appendicitis.
+
+DIAGNOSIS
+---------
+Acute appendicitis.
+
+ICD-10:
+K35.80
+
+PROCEDURE
+---------
+Laparoscopic appendectomy recommended.
+
+MEDICAL NECESSITY
+-----------------
+Emergency surgical intervention is considered medically necessary
+based on clinical findings and imaging evidence.
+
+EXPECTED LENGTH OF STAY
+-----------------------
+Approximately 1-2 days, subject to clinical recovery.
+
+========================================
+END OF REPORT

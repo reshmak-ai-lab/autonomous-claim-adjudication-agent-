@@ -1,0 +1,31 @@
+{
+  "test_cases": [
+    {
+      "id": "FRAUD-001",
+      "claim_id": "CLM-2026-01012",
+      "expected_risk": "LOW",
+      "expected_flags": []
+    },
+    {
+      "id": "FRAUD-002",
+      "claim_id": "CLM-2026-00981",
+      "expected_risk": "MEDIUM",
+      "expected_flags": [
+        "HIGHER_THAN_POLICY_ROOM_RATE",
+        "REPEATED_ABDOMINAL_CLAIMS"
+      ]
+    },
+    {
+      "id": "FRAUD-003",
+      "claim_id": "CLM-2026-01035",
+      "expected_risk": "HIGH",
+      "expected_flags": [
+        "HIGH_CLAIM_VALUE",
+        "EXTENDED_STAY",
+        "DUPLICATE_BILLING_INDICATOR",
+        "REPEATED_SIMILAR_CLAIMS",
+        "CLINICAL_DOCUMENT_MISMATCH"
+      ]
+    }
+  ]
+}

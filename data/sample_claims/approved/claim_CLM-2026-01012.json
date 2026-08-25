@@ -1,0 +1,44 @@
+{
+  "claim_id": "CLM-2026-01012",
+  "patient_id": "PAT-10062",
+  "policy_id": "POL-HLTH-784890",
+  "hospital_id": "HOSP-1020",
+  "admission_id": "ADM-2026-09012",
+  "claim_type": "cashless_pre_authorization",
+
+  "patient": {
+    "age": 32,
+    "gender": "Female",
+    "pre_existing_conditions": []
+  },
+
+  "admission": {
+    "date": "2026-08-16",
+    "expected_discharge": "2026-08-18",
+    "emergency": true
+  },
+
+  "diagnosis": {
+    "name": "Acute Appendicitis",
+    "icd10": "K35.80"
+  },
+
+  "procedure": {
+    "name": "Laparoscopic Appendectomy"
+  },
+
+  "financials": {
+    "room_rate_per_day": 4500,
+    "length_of_stay_days": 2,
+    "requested_amount": 68000,
+    "non_medical_amount": 0
+  },
+
+  "documents_complete": true,
+
+  "expected_result": {
+    "decision": "APPROVE",
+    "fraud_risk": "LOW",
+    "human_review_required": false
+  }
+}

@@ -1,0 +1,50 @@
+waiting_period_rules:
+
+  general_ped:
+    enabled: true
+    waiting_period_months: 36
+
+  specific_diseases:
+    enabled: true
+
+    rules:
+
+      hypertension:
+        waiting_period_months: 36
+
+      diabetes:
+        waiting_period_months: 36
+
+      cardiac_disease:
+        waiting_period_months: 36
+
+      chronic_kidney_disease:
+        waiting_period_months: 36
+
+  policy_continuity:
+
+    active_policy_required: true
+
+    break_in_policy:
+      reset_waiting_period: true
+
+  disclosure:
+
+    disclosed_before_claim:
+      treatment: "evaluate_under_policy"
+
+    disclosed_after_policy_start:
+      treatment: "requires_underwriting_review"
+
+  waiting_period_logic:
+
+    compare:
+      - policy_start_date
+      - diagnosis_date
+      - treatment_date
+
+    if_elapsed_months_less_than_waiting_period:
+      ped_coverage: false
+
+    if_elapsed_months_greater_or_equal_to_waiting_period:
+      ped_coverage: true

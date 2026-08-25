@@ -1,0 +1,24 @@
+STANDARD POLICY EXCLUSIONS
+========================================
+
+The following categories are generally not payable unless
+specifically covered by the applicable policy schedule:
+
+1. Non-medical consumables.
+2. Personal comfort items.
+3. Administrative charges not directly related to treatment.
+4. Registration charges.
+5. Visitor charges.
+6. Telephone charges.
+7. Food charges for attendants.
+8. Cosmetic treatment unless medically necessary and covered.
+9. Treatment specifically excluded by the policy.
+10. Expenses falling entirely within an applicable waiting period.
+11. Expenses unrelated to the diagnosed medical condition.
+
+Important:
+An excluded line item should not automatically result in rejection
+of the entire claim.
+
+The adjudication engine must calculate eligible and non-eligible
+components separately.

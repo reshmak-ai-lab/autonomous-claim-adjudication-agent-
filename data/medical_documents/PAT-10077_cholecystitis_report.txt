@@ -1,0 +1,68 @@
+SURGICAL ADMISSION REPORT
+========================================
+
+Hospital ID: HOSP-3099
+Patient ID: PAT-10077
+Patient Name: Arjun Rao
+Age: 51 years
+Gender: Male
+
+Date of Admission: 2026-08-14
+
+PRESENTING COMPLAINT
+--------------------
+Severe right upper abdominal pain for approximately 24 hours.
+
+Associated symptoms:
+- Fever
+- Nausea
+- Vomiting
+
+CLINICAL EXAMINATION
+--------------------
+Temperature: 38.7°C
+
+Abdominal examination:
+- Right upper quadrant tenderness
+- Positive Murphy's sign
+- Localized guarding
+
+LABORATORY FINDINGS
+-------------------
+WBC Count: 16,900 /µL
+CRP: Significantly elevated
+
+Liver Function:
+Bilirubin mildly elevated.
+
+IMAGING
+-------
+Gall bladder calculi identified.
+Gall bladder wall thickening is reported.
+Pericholecystic inflammatory changes are suspected.
+
+DIAGNOSIS
+---------
+Acute calculous cholecystitis.
+
+ICD-10:
+K80.00
+
+TREATMENT PLAN
+--------------
+1. Intravenous antibiotics.
+2. Analgesia.
+3. Surgical consultation.
+4. Laparoscopic cholecystectomy planned.
+
+MEDICAL NECESSITY
+-----------------
+The clinical presentation and documented inflammatory findings
+support the need for active treatment.
+
+EXPECTED LENGTH OF STAY
+-----------------------
+Approximately 2-3 days.
+
+========================================
+END OF REPORT

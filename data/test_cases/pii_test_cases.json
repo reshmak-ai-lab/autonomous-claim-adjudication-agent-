@@ -1,0 +1,29 @@
+{
+  "test_cases": [
+    {
+      "id": "PII-001",
+      "input": "Patient Amit Kumar, Aadhaar 3847-1928-4829, PAN ABCDE1234F, phone 9876543210.",
+      "expected_entities": [
+        "PERSON",
+        "AADHAAR",
+        "PAN",
+        "PHONE"
+      ],
+      "expected_redaction": true
+    },
+    {
+      "id": "PII-002",
+      "input": "ABHA ID: 12-3456-7890-1234",
+      "expected_entities": [
+        "ABHA_ID"
+      ],
+      "expected_redaction": true
+    },
+    {
+      "id": "PII-003",
+      "input": "Patient ID PAT-10045 has no direct government identifier.",
+      "expected_entities": [],
+      "expected_redaction": false
+    }
+  ]
+}
