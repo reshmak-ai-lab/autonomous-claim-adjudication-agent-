@@ -17,8 +17,11 @@ class DecisionBuilder:
         query_required: bool = False,
     ) -> Dict[str, Any]:
 
-        claimed_amount = float(claimed_amount)
-        payable_amount = max(0.0, float(payable_amount))
+        claimed_amount = max(0.0, float(claimed_amount))
+        payable_amount = max(
+            0.0,
+            min(float(payable_amount), claimed_amount),
+        )
 
         # Query takes priority when required information is missing.
         if query_required:

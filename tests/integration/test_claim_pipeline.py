@@ -292,14 +292,20 @@ def test_payable_amount_not_greater_than_claimed():
             "Pipeline did not return payable_amount."
         )
 
+    #claimed_amount = float(
+    #    claim.get(
+    #        "claimed_amount",
+    #        claim.get(
+    #            "claim_amount",
+    #            0,
+    #        ),
+    #    )
+    #)
     claimed_amount = float(
-        claim.get(
-            "claimed_amount",
-            claim.get(
-                "claim_amount",
-                0,
-            ),
-        )
+        claim.get("claimed_amount")
+        or claim.get("claim_amount")
+        or claim.get("financials", {}).get("requested_amount")
+        or 0
     )
 
     payable_amount = float(
