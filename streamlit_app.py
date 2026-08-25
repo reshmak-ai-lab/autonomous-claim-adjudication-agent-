@@ -50,26 +50,54 @@ workflow = get_workflow()
 # UTILITY FUNCTIONS
 # ============================================================
 
-def dict_to_table(data):
+def flatten_dict(data, parent_key=""):
+    """Flatten nested claim/workflow data into Field/Value rows."""
+    rows = []
 
     if isinstance(data, dict):
-
-        return pd.DataFrame(
-            [
-                data
-            ]
-        )
-
+        for key, value in data.items():
+            field = f"{parent_key}.{key}" if parent_key else str(key)
+            rows.extend(flatten_dict(value, field))
     elif isinstance(data, list):
-
-        return pd.DataFrame(
-            data
-        )
-
+        if not data:
+            rows.append({"Field": parent_key, "Value": "[]"})
+        else:
+            for i, value in enumerate(data):
+                field = f"{parent_key}[{i}]"
+                if isinstance(value, (dict, list)):
+                    rows.extend(flatten_dict(value, field))
+                else:
+                    rows.append({"Field": field, "Value": value})
     else:
+        rows.append({"Field": parent_key, "Value": data})
 
-        return pd.DataFrame()
+    return rows
 
+
+def json_to_table(data):
+    return pd.DataFrame(flatten_dict(data), columns=["Field", "Value"])
+
+
+def section_table(data):
+    if isinstance(data, list) and data and all(isinstance(x, dict) for x in data):
+        return pd.json_normalize(data)
+    if isinstance(data, dict):
+        return json_to_table(data)
+    if isinstance(data, list):
+        return pd.DataFrame(
+            [{"Field": "Value", "Value": x} for x in data]
+        )
+    return pd.DataFrame([{"Field": "Value", "Value": data}])
+
+
+def first_present(mapping, *keys, default=None):
+    if not isinstance(mapping, dict):
+        return default
+    for key in keys:
+        value = mapping.get(key)
+        if value not in (None, "", [], {}):
+            return value
+    return default
 
 def parse_txt(text):
 
@@ -275,129 +303,51 @@ with claim_panel:
 
 
         # ----------------------------------------------------
-        # Claim Summary
+        # ----------------------------------------------------
+        # Claim Summary + Complete Claim Input
         # ----------------------------------------------------
 
-        st.subheader(
-            "Claim Summary"
-        )
+        st.subheader("Claim Summary")
+
+        summary = {
+            "Claim ID": first_present(claim, "claim_id", "id", default="N/A"),
+            "Patient ID": first_present(claim, "patient_id", default="N/A"),
+            "Policy ID": first_present(claim, "policy_id", default="N/A"),
+            "Hospital ID": first_present(claim, "hospital_id", default="N/A"),
+            "Status": first_present(claim, "status", default="Submitted"),
+        }
 
         st.dataframe(
-
-            dict_to_table(
-                {
-                    "Claim ID":
-                        claim.get(
-                            "claim_id"
-                        ),
-
-                    "Status":
-                        claim.get(
-                            "status"
-                        )
-                }
-            ),
-
-            use_container_width=True
-
+            pd.DataFrame([summary]),
+            use_container_width=True,
+            hide_index=True
         )
 
+        st.subheader("📄 Complete Claim Details")
+
+        claim_table = json_to_table(claim)
+
+        if not claim_table.empty:
+            st.dataframe(
+                claim_table,
+                use_container_width=True,
+                hide_index=True,
+                height=min(650, max(180, 42 * len(claim_table)))
+            )
+        else:
+            st.warning("No claim fields were found.")
 
         # ----------------------------------------------------
         # TXT Preview
         # ----------------------------------------------------
 
         if txt_preview:
-
-            st.subheader(
-                "TXT Document Fields"
-            )
-
+            st.subheader("📄 TXT Document Fields")
             st.dataframe(
-
-                pd.DataFrame(
-                    txt_preview
-                ),
-
-                use_container_width=True
-
+                pd.DataFrame(txt_preview),
+                use_container_width=True,
+                hide_index=True
             )
-
-
-        # ----------------------------------------------------
-        # Diagnosis
-        # ----------------------------------------------------
-
-        if claim.get(
-            "diagnosis"
-        ):
-
-            st.subheader(
-                "Diagnosis"
-            )
-
-            st.dataframe(
-
-                dict_to_table(
-                    claim[
-                        "diagnosis"
-                    ]
-                ),
-
-                use_container_width=True
-
-            )
-
-
-        # ----------------------------------------------------
-        # Financial Details
-        # ----------------------------------------------------
-
-        if claim.get(
-            "financials"
-        ):
-
-            st.subheader(
-                "Financial Details"
-            )
-
-            st.dataframe(
-
-                dict_to_table(
-                    claim[
-                        "financials"
-                    ]
-                ),
-
-                use_container_width=True
-
-            )
-
-
-        # ----------------------------------------------------
-        # Procedure
-        # ----------------------------------------------------
-
-        if claim.get(
-            "procedure"
-        ):
-
-            st.subheader(
-                "Procedure"
-            )
-
-            st.dataframe(
-
-                dict_to_table(
-                    claim[
-                        "procedure"
-                    ]
-                ),
-
-                use_container_width=True
-
-            )
-
 
         # ====================================================
         # EXECUTE ADJUDICATION
@@ -435,218 +385,249 @@ with claim_panel:
 
 
             # =================================================
+            # =================================================
             # OUTPUT
             # =================================================
 
-            st.header(
-                "📤 Claim Output"
-            )
+            st.header("📤 Claim Output")
 
+            adjudication_result = result.get("adjudication_result") or result.get("adjudication") or {}
+            fraud_result = (
+                result.get("fraud_result")
+                or result.get("fraud_analysis")
+                or result.get("fraud")
+                or {}
+            )
+            guardrail_result = (
+                result.get("guardrail_result")
+                or result.get("guardrails")
+                or result.get("guardrail_checks")
+                or {}
+            )
 
             # -------------------------------------------------
-            # Final Decision
+            # 1. FINAL DECISION
             # -------------------------------------------------
 
-            st.subheader(
-                "Final Decision"
+            st.subheader("🎯 Final Decision")
+
+            decision = first_present(
+                result,
+                "final_decision",
+                "decision",
+                default=first_present(
+                    adjudication_result,
+                    "decision",
+                    "final_decision",
+                    default="NOT_AVAILABLE"
+                )
             )
 
-            adjudication_result = result.get(
-                "adjudication_result",
-                {}
+            human_review = first_present(
+                result,
+                "human_review_required",
+                "requires_human_review",
+                default=first_present(
+                    adjudication_result,
+                    "human_review_required",
+                    "requires_human_review",
+                    default=False
+                )
             )
 
-            decision_table = {
-
-                "Claim ID":
-                    claim.get(
-                        "claim_id"
+            st.dataframe(
+                pd.DataFrame([{
+                    "Claim ID": claim.get("claim_id", "N/A"),
+                    "Final Decision": decision,
+                    "Adjudication Decision": first_present(
+                        adjudication_result,
+                        "decision",
+                        "adjudication_decision",
+                        default="N/A"
                     ),
+                    "Human Review Required": human_review,
+                    "Status": first_present(result, "status", default="Completed")
+                }]),
+                use_container_width=True,
+                hide_index=True
+            )
 
-                "Adjudication Decision":
-                    adjudication_result.get(
-                        "decision"
-                    ),
+            # -------------------------------------------------
+            # 2. FINANCIAL ADJUDICATION
+            # -------------------------------------------------
 
-                "Final Decision":
-                    result.get(
-                        "final_decision"
-                    ),
+            st.subheader("💰 Financial Adjudication")
 
-                "Human Review Required":
-                    result.get(
-                        "human_review_required"
+            claim_financials = claim.get("financials", {})
+
+            financial_summary = {
+                "Claimed Amount": first_present(
+                    adjudication_result,
+                    "claimed_amount",
+                    "requested_amount",
+                    default=first_present(
+                        claim_financials,
+                        "claimed_amount",
+                        "requested_amount",
+                        "total_amount",
+                        default="N/A"
                     )
+                ),
+                "Eligible Amount": first_present(
+                    adjudication_result,
+                    "eligible_amount",
+                    "approved_amount",
+                    default="N/A"
+                ),
+                "Payable Amount": first_present(
+                    adjudication_result,
+                    "payable_amount",
+                    "final_payable_amount",
+                    "net_payable_amount",
+                    default="N/A"
+                ),
+                "Deduction / Non-Payable": first_present(
+                    adjudication_result,
+                    "non_payable_amount",
+                    "deduction_amount",
+                    "total_deduction",
+                    default="N/A"
+                ),
+                "Decision": first_present(
+                    adjudication_result,
+                    "decision",
+                    default=decision
+                ),
+                "Reason": first_present(
+                    adjudication_result,
+                    "reason",
+                    "rationale",
+                    "explanation",
+                    default="N/A"
+                )
             }
 
             st.dataframe(
-
-                dict_to_table(
-                    decision_table
-                ),
-
-                use_container_width=True
-
+                pd.DataFrame([financial_summary]),
+                use_container_width=True,
+                hide_index=True
             )
 
+            if adjudication_result:
+                with st.expander("View all financial/adjudication details", expanded=True):
+                    st.dataframe(
+                        json_to_table(adjudication_result),
+                        use_container_width=True,
+                        hide_index=True
+                    )
 
             # -------------------------------------------------
-            # Financial Output
+            # 3. FRAUD ANALYSIS
             # -------------------------------------------------
 
-            st.subheader(
-                "Financial Adjudication"
-            )
+            st.subheader("🛡️ Fraud Analysis")
 
-            adjudication = result.get(
-                "adjudication_result",
-                {}
-            )
-
-            st.dataframe(
-
-                dict_to_table(
-                    {
-
-                        "Claimed Amount":
-                            adjudication.get(
-                                "claimed_amount"
-                            ),
-
-                        "Payable Amount":
-                            adjudication.get(
-                                "payable_amount"
-                            ),
-
-                        "Decision":
-                            adjudication.get(
-                                "decision"
-                            ),
-
-                        "Reason":
-                            adjudication.get(
-                                "reason"
-                            )
-
-                    }
-                ),
-
-                use_container_width=True
-
-            )
-
-
-            # -------------------------------------------------
-            # Fraud Output
-            # -------------------------------------------------
-
-            st.subheader(
-                "Fraud Analysis"
-            )
-
-            fraud = result.get(
-                "fraud_result",
-                {}
-            )
-
-            st.dataframe(
-
-                dict_to_table(
-                    {
-
-                        "Fraud Detected":
-                            fraud.get(
-                                "fraud_detected"
-                            ),
-
-                        "Risk Level":
-                            fraud.get(
-                                "risk_level"
-                            ),
-
-                        "Fraud Score":
-                            fraud.get(
-                                "fraud_score"
-                            )
-
-                    }
-                ),
-
-                use_container_width=True
-
-            )
-
-
-            # -------------------------------------------------
-            # Guardrails
-            # -------------------------------------------------
-
-            st.subheader(
-                "Guardrail Checks"
-            )
-
-            guard = result.get(
-                "guardrail_result",
-                {}
-            )
-
-            checks = guard.get(
-                "checks",
-                []
-            )
-
-            if checks:
+            if fraud_result:
+                fraud_summary = {
+                    "Fraud Detected": first_present(
+                        fraud_result, "fraud_detected", "is_fraud", default="N/A"
+                    ),
+                    "Risk Level": first_present(
+                        fraud_result, "risk_level", "risk", default="N/A"
+                    ),
+                    "Fraud Score": first_present(
+                        fraud_result, "fraud_score", "risk_score", "score", default="N/A"
+                    ),
+                    "Reason": first_present(
+                        fraud_result, "reason", "rationale", "explanation", default="N/A"
+                    )
+                }
 
                 st.dataframe(
-
-                    pd.DataFrame(
-                        checks
-                    ),
-
-                    use_container_width=True
-
+                    pd.DataFrame([fraud_summary]),
+                    use_container_width=True,
+                    hide_index=True
                 )
 
+                with st.expander("View all fraud-analysis details", expanded=True):
+                    st.dataframe(
+                        json_to_table(fraud_result),
+                        use_container_width=True,
+                        hide_index=True
+                    )
             else:
+                st.warning("No fraud-analysis result was returned by the workflow.")
 
-                st.info(
-                    "No guardrail checks returned."
+            # -------------------------------------------------
+            # 4. GUARDRAIL CHECKS
+            # -------------------------------------------------
+
+            st.subheader("🔐 Guardrail Checks")
+
+            checks = []
+            if isinstance(guardrail_result, dict):
+                checks = (
+                    guardrail_result.get("checks")
+                    or guardrail_result.get("guardrail_checks")
+                    or guardrail_result.get("results")
+                    or []
                 )
 
+            if isinstance(checks, dict):
+                checks = [
+                    {"Check": key, "Result": value}
+                    for key, value in checks.items()
+                ]
+
+            if checks:
+                st.dataframe(
+                    section_table(checks),
+                    use_container_width=True,
+                    hide_index=True
+                )
+            elif guardrail_result:
+                st.dataframe(
+                    json_to_table(guardrail_result),
+                    use_container_width=True,
+                    hide_index=True
+                )
+            else:
+                st.warning(
+                    "No guardrail result was returned by the workflow. "
+                    "The UI cannot report guardrail status unless the workflow returns it."
+                )
 
             # -------------------------------------------------
-            # Execution Trace
+            # 5. EXECUTION TRACE
             # -------------------------------------------------
 
-            st.subheader(
-                "Execution Trace"
-            )
+            st.subheader("🔎 Execution Trace")
 
-            execution_trace = result.get(
-                "execution_trace",
-                []
+            execution_trace = (
+                result.get("execution_trace")
+                or result.get("trace")
+                or result.get("steps")
+                or []
             )
 
             if execution_trace:
-
                 st.dataframe(
-
-                    pd.DataFrame(
-                        execution_trace
-                    ),
-
-                    use_container_width=True
-
+                    section_table(execution_trace),
+                    use_container_width=True,
+                    hide_index=True
                 )
-
             else:
+                st.info("No execution trace was returned by the workflow.")
 
-                st.info(
-                    "No execution trace returned."
-                )
+            # -------------------------------------------------
+            # 6. COMPLETE WORKFLOW RESPONSE
+            # -------------------------------------------------
 
+            st.subheader("📦 Complete Workflow Result")
 
-# ============================================================
+            with st.expander("View complete raw adjudication response", expanded=False):
+                st.json(result)
+
 # TESTING PANEL
 # ============================================================
 
