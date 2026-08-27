@@ -5,7 +5,7 @@ Ensures that adjudication calculations do not produce
 invalid or contradictory amounts.
 """
 
-from typing import Any, Dict, List
+from typing import Any, Dict, list
 
 
 class FinancialValidator:
@@ -15,7 +15,7 @@ class FinancialValidator:
         claimed_amount: float,
         payable_amount: float,
         deductions: Dict[str, Any] | None = None,
-    ) -> List[str]:
+    ) -> list[str]:
 
         errors = []
 

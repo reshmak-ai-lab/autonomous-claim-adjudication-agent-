@@ -4,7 +4,7 @@ State definition for the claim adjudication agent.
 
 from __future__ import annotations
 
-from typing import Any, dict, List, Optional, Typeddict
+from typing import Any, dict, list, Optional, Typeddict
 
 
 class AgentState(Typeddict, total=False):
@@ -31,8 +31,8 @@ class AgentState(Typeddict, total=False):
     # Documents
     # ------------------------------------------------------------------
 
-    documents: List[dict[str, Any]]
-    document_metadata: List[dict[str, Any]]
+    documents: list[dict[str, Any]]
+    document_metadata: list[dict[str, Any]]
 
     # ------------------------------------------------------------------
     # Extraction
@@ -48,7 +48,7 @@ class AgentState(Typeddict, total=False):
     # Policy / RAG
     # ------------------------------------------------------------------
 
-    policy_context: List[dict[str, Any]]
+    policy_context: list[dict[str, Any]]
     policy_result: dict[str, Any]
 
     # ------------------------------------------------------------------
@@ -90,6 +90,6 @@ class AgentState(Typeddict, total=False):
     # ------------------------------------------------------------------
 
     trace_id: str
-    execution_trace: List[dict[str, Any]]
-    errors: List[str]
-    warnings: List[str]
+    execution_trace: list[dict[str, Any]]
+    errors: list[str]
+    warnings: list[str]

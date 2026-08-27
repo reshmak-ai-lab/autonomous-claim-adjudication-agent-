@@ -6,7 +6,7 @@ been billed multiple times for the same patient and date.
 """
 
 from collections import defaultdict
-from typing import Any, Dict, List
+from typing import Any, Dict, list
 
 from .fraud_rules import DUPLICATE_RULES, make_finding
 
@@ -25,7 +25,7 @@ class DuplicateChargeDetector:
     }
     """
 
-    def detect(self, billing_items: List[Dict[str, Any]]) -> Dict[str, Any]:
+    def detect(self, billing_items: list[Dict[str, Any]]) -> Dict[str, Any]:
 
         findings = []
 
@@ -110,7 +110,7 @@ class DuplicateChargeDetector:
 
 
 def detect_duplicate_charges(
-    billing_items: List[Dict[str, Any]],
+    billing_items: list[Dict[str, Any]],
 ) -> Dict[str, Any]:
     """
     Convenience function.

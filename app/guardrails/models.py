@@ -6,7 +6,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import Any, Dict, List
+from typing import Any, Dict, list
 
 
 class GuardrailStatus(str, Enum):
@@ -37,15 +37,15 @@ class GuardrailResult:
 
     status: GuardrailStatus
 
-    checks: List[GuardrailCheck] = field(
+    checks: list[GuardrailCheck] = field(
         default_factory=list
     )
 
-    errors: List[str] = field(
+    errors: list[str] = field(
         default_factory=list
     )
 
-    warnings: List[str] = field(
+    warnings: list[str] = field(
         default_factory=list
     )
 

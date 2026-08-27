@@ -1,6 +1,5 @@
 from __future__ import annotations
-
-from decimal import Decimal, ROUND_HALF_UP
+from decimal import ROUND_HALF_UP, Decimal
 from typing import Union
 
 
@@ -26,7 +25,7 @@ def money(value: Number) -> Decimal:
     amount = to_decimal(value)
 
     return amount.quantize(
-        Decimal("0.01"),
+        Decimal(0.01),
         rounding=ROUND_HALF_UP,
     )
 
@@ -46,7 +45,7 @@ def calculate_percentage(
     result = (
         to_decimal(amount)
         * to_decimal(percentage)
-        / Decimal("100")
+        / Decimal(100)
     )
 
     return money(result)
@@ -57,7 +56,7 @@ def safe_add(*values: Number) -> Decimal:
     Safely add multiple monetary values.
     """
 
-    total = Decimal("0")
+    total = Decimal(0)
 
     for value in values:
         total += to_decimal(value)
@@ -80,4 +79,4 @@ def safe_subtract(
     for deduction in deductions:
         result -= to_decimal(deduction)
 
-    return money(max(result, Decimal("0")))
+    return money(max(result, Decimal(0)))

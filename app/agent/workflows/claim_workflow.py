@@ -23,7 +23,7 @@ Final response
 from __future__ import annotations
 
 import time
-from typing import Any, Dict
+from typing import Any, dict
 
 from ..state import AgentState
 
@@ -57,7 +57,7 @@ class ClaimWorkflow:
         self,
         state: AgentState,
         event: str,
-        metadata: Dict[str, Any] | None = None,
+        metadata: dict[str, Any] | None = None,
     ) -> None:
 
         state.setdefault(
@@ -323,7 +323,7 @@ class ClaimWorkflow:
 
     def _validate_input(
         self,
-        claim: Dict[str, Any],
+        claim: dict[str, Any],
     ) -> None:
 
         if not claim.get("claim_id"):

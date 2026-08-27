@@ -2,7 +2,7 @@
 Final decision guardrails.
 """
 
-from typing import List
+from typing import list
 
 
 class DecisionValidator:
@@ -12,7 +12,7 @@ class DecisionValidator:
         decision: str,
         claimed_amount: float,
         payable_amount: float,
-    ) -> List[str]:
+    ) -> list[str]:
 
         errors = []
 

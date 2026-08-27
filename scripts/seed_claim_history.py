@@ -18,7 +18,7 @@ import json
 import logging
 import sys
 from pathlib import Path
-from typing import Any, dict, List
+from typing import Any, dict, list
 
 
 # ---------------------------------------------------------------------
@@ -60,12 +60,12 @@ SAMPLE_CLAIMS_DIR = (
 # Claim loading
 # ---------------------------------------------------------------------
 
-def load_claim_files() -> List[dict[str, Any]]:
+def load_claim_files() -> list[dict[str, Any]]:
     """
     Load all JSON claim files from data/sample_claims.
     """
 
-    claims: List[dict[str, Any]] = []
+    claims: list[dict[str, Any]] = []
 
     if not SAMPLE_CLAIMS_DIR.exists():
 

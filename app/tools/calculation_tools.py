@@ -32,13 +32,13 @@ class CalculationTools:
             "copay_percentage": float(percentage),
             "copay_amount": float(
                 copay_amount.quantize(
-                    Decimal("0.01"),
+                    Decimal(0.01),
                     rounding=ROUND_HALF_UP,
                 )
             ),
             "payable_amount": float(
                 payable_amount.quantize(
-                    Decimal("0.01"),
+                    Decimal(0.01),
                     rounding=ROUND_HALF_UP,
                 )
             ),
@@ -55,7 +55,7 @@ class CalculationTools:
         deductible_amount = CalculationTools.money(deductible)
 
         payable = max(
-            Decimal("0"),
+            Decimal(0),
             eligible - deductible_amount,
         )
 
@@ -64,7 +64,7 @@ class CalculationTools:
             "deductible": float(deductible_amount),
             "payable_amount": float(
                 payable.quantize(
-                    Decimal("0.01"),
+                    Decimal(0.01),
                     rounding=ROUND_HALF_UP,
                 )
             ),
@@ -91,9 +91,9 @@ class CalculationTools:
             )
 
         if eligible_room >= actual_room:
-            deduction = Decimal("0")
+            deduction = Decimal(0)
             eligible_bill = bill
-            ratio = Decimal("1")
+            ratio = Decimal(1)
         else:
             ratio = eligible_room / actual_room
             eligible_bill = bill * ratio
@@ -106,13 +106,13 @@ class CalculationTools:
             "eligible_ratio": float(ratio),
             "proportional_deduction": float(
                 deduction.quantize(
-                    Decimal("0.01"),
+                    Decimal(0.01),
                     rounding=ROUND_HALF_UP,
                 )
             ),
             "eligible_bill": float(
                 eligible_bill.quantize(
-                    Decimal("0.01"),
+                    Decimal(0.01),
                     rounding=ROUND_HALF_UP,
                 )
             ),
@@ -140,21 +140,21 @@ class CalculationTools:
         copay = CalculationTools.money(copay_percentage)
 
         eligible = max(
-            Decimal("0"),
+            Decimal(0),
             claimed - non_payable,
         )
 
         after_deductible = max(
-            Decimal("0"),
+            Decimal(0),
             eligible - deductible_amount,
         )
 
         copay_amount = (
-            after_deductible * copay / Decimal("100")
+            after_deductible * copay / Decimal(100)
         )
 
         payable = max(
-            Decimal("0"),
+            Decimal(0),
             after_deductible - copay_amount,
         )
 
@@ -166,13 +166,13 @@ class CalculationTools:
             "copay_percentage": float(copay),
             "copay_amount": float(
                 copay_amount.quantize(
-                    Decimal("0.01"),
+                    Decimal(0.01),
                     rounding=ROUND_HALF_UP,
                 )
             ),
             "payable_amount": float(
                 payable.quantize(
-                    Decimal("0.01"),
+                    Decimal(0.01),
                     rounding=ROUND_HALF_UP,
                 )
             ),

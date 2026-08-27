@@ -1,11 +1,12 @@
 #from pathlib import Path
+from app.rag.embeddings import EmbeddingService
 from app.rag.rag_ingestion import (
     PolicyLoader,
     PolicyChunker,
     MetadataBuilder,
 )
 
-from app.rag.embeddings import EmbeddingService
+
 from app.rag.vector_store import VectorStore
 
 def main():

@@ -6,7 +6,7 @@ even though they could represent components of a bundled service.
 """
 from app.fraud.unbundling_detector import UnbundlingDetector
 import re
-from typing import Any, Dict, List
+from typing import Any, dict, List
 
 
 BUNDLED_PROCEDURES = {
@@ -51,8 +51,8 @@ class UnbundlingDetector:
 
     def detect(
         self,
-        billing_items: List[Dict[str, Any]],
-    ) -> Dict[str, Any]:
+        billing_items: List[dict[str, Any]],
+    ) -> dict[str, Any]:
 
         findings = []
         normalized_items = []
@@ -138,8 +138,8 @@ class UnbundlingDetector:
 
 
 def detect_unbundling(
-    billing_items: List[Dict[str, Any]],
-) -> Dict[str, Any]:
+    billing_items: List[dict[str, Any]],
+) -> dict[str, Any]:
 
     return UnbundlingDetector().detect(
         billing_items

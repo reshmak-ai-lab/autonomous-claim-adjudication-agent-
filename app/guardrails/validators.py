@@ -2,7 +2,7 @@
 General claim validation.
 """
 
-from typing import Any, Dict, List
+from typing import Any, Dict, list
 
 
 class ClaimValidator:
@@ -14,7 +14,7 @@ class ClaimValidator:
     def validate_claim(
         self,
         claim: Dict[str, Any],
-    ) -> List[str]:
+    ) -> list[str]:
 
         errors = []
 
@@ -60,7 +60,7 @@ class ClaimValidator:
     def validate_dates(
         self,
         claim: Dict[str, Any],
-    ) -> List[str]:
+    ) -> list[str]:
 
         errors = []
 
@@ -85,7 +85,7 @@ class ClaimValidator:
     def validate(
         self,
         claim: Dict[str, Any],
-    ) -> List[str]:
+    ) -> list[str]:
 
         return (
             self.validate_claim(claim)

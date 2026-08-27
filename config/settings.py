@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from functools import lru_cache
-from typing import List
+from typing import list
 
 from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigdict
@@ -244,7 +244,7 @@ class Settings(BaseSettings):
     CORS_ORIGINS: str = "http://localhost:8501"
 
     @property
-    def cors_origins_list(self) -> List[str]:
+    def cors_origins_list(self) -> list[str]:
         """
         Convert comma-separated CORS origins into a list.
         """
