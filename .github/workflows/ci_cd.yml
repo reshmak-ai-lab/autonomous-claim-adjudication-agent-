@@ -69,7 +69,7 @@ jobs:
           python -m spacy download en_core_web_sm
 
       - name: Execute Pytest Suite
-          continue-on-error: true
+        continue-on-error: true
           env:
             PYTHONPATH: .
           run: |
