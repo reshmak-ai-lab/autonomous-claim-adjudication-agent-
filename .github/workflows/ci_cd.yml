@@ -114,7 +114,7 @@ jobs:
 
       - name: Run LangSmith Evaluation Runner
         run: |
-          python evals/run_evals.py
+          python scripts/run_test_cases.py
 
   # -------------------------------------------------------------------
   # 4. Container Build & Packaging
