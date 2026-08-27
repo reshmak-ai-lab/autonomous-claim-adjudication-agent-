@@ -70,9 +70,9 @@ jobs:
 
       - name: Execute Pytest Suite
         continue-on-error: true
-          env:
+        env:
             PYTHONPATH: .
-          run: |
+        run: |
             python -m pytest tests/ -v
   # -------------------------------------------------------------------
   # 3. LangSmith Evaluation Regression Gate
