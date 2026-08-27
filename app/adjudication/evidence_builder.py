@@ -4,20 +4,20 @@ Evidence builder.
 Creates an auditable explanation for the adjudication decision.
 """
 
-from typing import Any, Dict, List
+from typing import Any, dict, List
 
 
 class EvidenceBuilder:
 
     def build(
         self,
-        claim: Dict[str, Any],
-        policy_evidence: List[Dict[str, Any]] | None = None,
-        clinical_evidence: List[Dict[str, Any]] | None = None,
-        billing_evidence: List[Dict[str, Any]] | None = None,
-        rule_evidence: List[Dict[str, Any]] | None = None,
-        fraud_evidence: List[Dict[str, Any]] | None = None,
-    ) -> Dict[str, Any]:
+        claim: dict[str, Any],
+        policy_evidence: List[dict[str, Any]] | None = None,
+        clinical_evidence: List[dict[str, Any]] | None = None,
+        billing_evidence: List[dict[str, Any]] | None = None,
+        rule_evidence: List[dict[str, Any]] | None = None,
+        fraud_evidence: List[dict[str, Any]] | None = None,
+    ) -> dict[str, Any]:
 
         policy_evidence = policy_evidence or []
         clinical_evidence = clinical_evidence or []

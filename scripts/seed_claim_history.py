@@ -18,7 +18,7 @@ import json
 import logging
 import sys
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any, dict, List
 
 
 # ---------------------------------------------------------------------
@@ -60,12 +60,12 @@ SAMPLE_CLAIMS_DIR = (
 # Claim loading
 # ---------------------------------------------------------------------
 
-def load_claim_files() -> List[Dict[str, Any]]:
+def load_claim_files() -> List[dict[str, Any]]:
     """
     Load all JSON claim files from data/sample_claims.
     """
 
-    claims: List[Dict[str, Any]] = []
+    claims: List[dict[str, Any]] = []
 
     if not SAMPLE_CLAIMS_DIR.exists():
 
@@ -160,8 +160,8 @@ def load_claim_files() -> List[Dict[str, Any]]:
 # ---------------------------------------------------------------------
 
 def normalize_claim(
-    claim: Dict[str, Any],
-) -> Dict[str, Any]:
+    claim: dict[str, Any],
+) -> dict[str, Any]:
     """
     Convert a raw claim into a compact historical record.
 
@@ -236,7 +236,7 @@ def normalize_claim(
 # ---------------------------------------------------------------------
 
 def build_memory_text(
-    claim: Dict[str, Any],
+    claim: dict[str, Any],
 ) -> str:
     """
     Convert a historical claim into text suitable for Mem0
@@ -293,7 +293,7 @@ def get_claim_history_service():
 
 def store_claim(
     service: Any,
-    claim: Dict[str, Any],
+    claim: dict[str, Any],
 ) -> bool:
     """
     Store one historical claim.

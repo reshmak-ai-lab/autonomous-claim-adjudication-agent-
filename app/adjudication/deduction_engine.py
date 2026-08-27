@@ -4,7 +4,7 @@ Financial deduction engine.
 Calculates eligible amount and deductions before final adjudication.
 """
 
-from typing import Any, Dict, List
+from typing import Any, dict, List
 
 
 class DeductionEngine:
@@ -19,7 +19,7 @@ class DeductionEngine:
         copay_percent: float = 0.0,
         deductible_amount: float = 0.0,
         sum_insured_remaining: float | None = None,
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
 
         claimed_amount = max(0.0, float(claimed_amount))
 

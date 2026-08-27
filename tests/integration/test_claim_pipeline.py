@@ -9,7 +9,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
-from typing import Any, Dict
+from typing import Any, dict
 
 import pytest
 
@@ -36,7 +36,7 @@ SAMPLE_CLAIMS_DIR = (
 
 def load_claim(
     relative_path: str,
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     """
     Load a claim JSON file from data/sample_claims.
     """
@@ -69,8 +69,8 @@ def load_claim(
 
 
 def run_claim_pipeline(
-    claim: Dict[str, Any],
-) -> Dict[str, Any]:
+    claim: dict[str, Any],
+) -> dict[str, Any]:
     """
     Run the application's claim agent.
 

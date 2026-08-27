@@ -4,17 +4,17 @@ State definition for the claim adjudication agent.
 
 from __future__ import annotations
 
-from typing import Any, Dict, List, Optional, TypedDict
+from typing import Any, dict, List, Optional, Typeddict
 
 
-class AgentState(TypedDict, total=False):
+class AgentState(Typeddict, total=False):
 
     # ------------------------------------------------------------------
     # Claim context
     # ------------------------------------------------------------------
 
     claim_id: str
-    claim: Dict[str, Any]
+    claim: dict[str, Any]
 
     patient_id: Optional[str]
     policy_id: Optional[str]
@@ -31,50 +31,50 @@ class AgentState(TypedDict, total=False):
     # Documents
     # ------------------------------------------------------------------
 
-    documents: List[Dict[str, Any]]
-    document_metadata: List[Dict[str, Any]]
+    documents: List[dict[str, Any]]
+    document_metadata: List[dict[str, Any]]
 
     # ------------------------------------------------------------------
     # Extraction
     # ------------------------------------------------------------------
 
-    clinical_data: Dict[str, Any]
-    billing_data: Dict[str, Any]
-    diagnosis_data: Dict[str, Any]
-    procedure_data: Dict[str, Any]
-    timeline_data: Dict[str, Any]
+    clinical_data: dict[str, Any]
+    billing_data: dict[str, Any]
+    diagnosis_data: dict[str, Any]
+    procedure_data: dict[str, Any]
+    timeline_data: dict[str, Any]
 
     # ------------------------------------------------------------------
     # Policy / RAG
     # ------------------------------------------------------------------
 
-    policy_context: List[Dict[str, Any]]
-    policy_result: Dict[str, Any]
+    policy_context: List[dict[str, Any]]
+    policy_result: dict[str, Any]
 
     # ------------------------------------------------------------------
     # Rules
     # ------------------------------------------------------------------
 
-    rule_result: Dict[str, Any]
-    financial_inputs: Dict[str, Any]
+    rule_result: dict[str, Any]
+    financial_inputs: dict[str, Any]
 
     # ------------------------------------------------------------------
     # Fraud
     # ------------------------------------------------------------------
 
-    fraud_result: Dict[str, Any]
+    fraud_result: dict[str, Any]
 
     # ------------------------------------------------------------------
     # Adjudication
     # ------------------------------------------------------------------
 
-    adjudication_result: Dict[str, Any]
+    adjudication_result: dict[str, Any]
 
     # ------------------------------------------------------------------
     # Guardrails
     # ------------------------------------------------------------------
 
-    guardrail_result: Dict[str, Any]
+    guardrail_result: dict[str, Any]
     guardrails_passed: bool
     human_review_required: bool
 
@@ -83,13 +83,13 @@ class AgentState(TypedDict, total=False):
     # ------------------------------------------------------------------
 
     final_decision: str
-    final_response: Dict[str, Any]
+    final_response: dict[str, Any]
 
     # ------------------------------------------------------------------
     # Observability
     # ------------------------------------------------------------------
 
     trace_id: str
-    execution_trace: List[Dict[str, Any]]
+    execution_trace: List[dict[str, Any]]
     errors: List[str]
     warnings: List[str]

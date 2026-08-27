@@ -7,7 +7,7 @@ logic remains in the appropriate modules.
 
 from __future__ import annotations
 
-from typing import Any, Dict, Optional
+from typing import Any, dict, Optional
 
 from .state import AgentState
 from .workflows.claim_workflow import ClaimWorkflow
@@ -27,7 +27,7 @@ class ClaimAgent:
 
     def process(
         self,
-        claim: Dict[str, Any],
+        claim: dict[str, Any],
     ) -> AgentState:
 
         state: AgentState = {
@@ -45,8 +45,8 @@ class ClaimAgent:
 
     def adjudicate(
         self,
-        claim: Dict[str, Any],
-    ) -> Dict[str, Any]:
+        claim: dict[str, Any],
+    ) -> dict[str, Any]:
 
         state = self.process(claim)
 

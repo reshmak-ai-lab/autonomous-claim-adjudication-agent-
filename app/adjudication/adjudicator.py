@@ -10,7 +10,7 @@ It does not perform document extraction or policy retrieval itself.
 Those responsibilities belong to their respective modules.
 """
 
-from typing import Any, Dict, List
+from typing import Any, dict, List
 
 from .deduction_engine import DeductionEngine
 from .decision_builder import DecisionBuilder
@@ -27,16 +27,16 @@ class Adjudicator:
 
     def adjudicate(
         self,
-        claim: Dict[str, Any],
-        financial_inputs: Dict[str, Any] | None = None,
-        policy_evidence: List[Dict[str, Any]] | None = None,
-        clinical_evidence: List[Dict[str, Any]] | None = None,
-        billing_evidence: List[Dict[str, Any]] | None = None,
-        rule_evidence: List[Dict[str, Any]] | None = None,
-        fraud_result: Dict[str, Any] | None = None,
+        claim: dict[str, Any],
+        financial_inputs: dict[str, Any] | None = None,
+        policy_evidence: List[dict[str, Any]] | None = None,
+        clinical_evidence: List[dict[str, Any]] | None = None,
+        billing_evidence: List[dict[str, Any]] | None = None,
+        rule_evidence: List[dict[str, Any]] | None = None,
+        fraud_result: dict[str, Any] | None = None,
         query_required: bool = False,
         policy_issue: bool = False,
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
 
         financial_inputs = financial_inputs or {}
         fraud_result = fraud_result or {}
@@ -203,10 +203,10 @@ class Adjudicator:
 
 
 def adjudicate_claim(
-    claim: Dict[str, Any],
-    financial_inputs: Dict[str, Any] | None = None,
+    claim: dict[str, Any],
+    financial_inputs: dict[str, Any] | None = None,
     **kwargs: Any,
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     """
     Convenience function.
     """
@@ -220,8 +220,8 @@ def adjudicate_claim(
 
 def _extract_claimed_amount(
     self,
-    claim: Dict[str, Any],
-    financial_inputs: Dict[str, Any],
+    claim: dict[str, Any],
+    financial_inputs: dict[str, Any],
 ) -> float:
     """
     Extract the claimed amount from all supported

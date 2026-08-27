@@ -6,7 +6,7 @@ when LangSmith is disabled or credentials are unavailable.
 """
 
 import os
-from typing import Any, Dict, Optional
+from typing import Any, dict, Optional
 
 
 def is_langsmith_enabled() -> bool:
@@ -27,7 +27,7 @@ def is_langsmith_enabled() -> bool:
     }
 
 
-def get_langsmith_config() -> Dict[str, Any]:
+def get_langsmith_config() -> dict[str, Any]:
     """
     Return the current LangSmith configuration.
 
@@ -54,7 +54,7 @@ def get_langsmith_config() -> Dict[str, Any]:
     }
 
 
-def configure_langsmith() -> Dict[str, Any]:
+def configure_langsmith() -> dict[str, Any]:
     """
     Configure environment variables used by LangChain/LangSmith.
 
@@ -112,7 +112,7 @@ def get_langsmith_run_config(
     claim_id: Optional[str] = None,
     workflow_name: Optional[str] = None,
     tags: Optional[list[str]] = None,
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     """
     Build metadata suitable for LangChain Runnable configuration.
     """

@@ -2,7 +2,7 @@
 Build the final claim decision from financial and policy results.
 """
 
-from typing import Any, Dict
+from typing import Any, dict
 
 
 class DecisionBuilder:
@@ -15,7 +15,7 @@ class DecisionBuilder:
         fraud_risk_level: str = "MINIMAL",
         policy_issue: bool = False,
         query_required: bool = False,
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
 
         claimed_amount = max(0.0, float(claimed_amount))
         payable_amount = max(

@@ -4,7 +4,7 @@ from functools import lru_cache
 from typing import List
 
 from pydantic import Field
-from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic_settings import BaseSettings, SettingsConfigdict
 
 
 class Settings(BaseSettings):
@@ -17,7 +17,7 @@ class Settings(BaseSettings):
     3. Defaults defined below
     """
 
-    model_config = SettingsConfigDict(
+    model_config = SettingsConfigdict(
         env_file=".env",
         env_file_encoding="utf-8",
         case_sensitive=True,
