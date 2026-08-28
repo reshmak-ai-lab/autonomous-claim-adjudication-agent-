@@ -1,0 +1,15 @@
+Code snippet
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+.env
+.git
+.gitignore
+.github
+tests/
+eval_results/
+/tmp/qdrant
+
