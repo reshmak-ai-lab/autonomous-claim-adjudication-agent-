@@ -6,7 +6,7 @@ are logically consistent.
 """
 
 from datetime import datetime
-from typing import Any, Dict, list, Optional
+from typing import Any, Optional
 
 from .fraud_rules import make_finding
 
@@ -43,9 +43,9 @@ class TimelineDetector:
 
     def detect(
         self,
-        claim: Dict[str, Any],
-        billing_items: list[Dict[str, Any]],
-    ) -> Dict[str, Any]:
+        claim: dict[str, Any],
+        billing_items: list[dict[str, Any]],
+    ) -> dict[str, Any]:
 
         findings = []
 
@@ -154,9 +154,9 @@ class TimelineDetector:
 
 
 def detect_timeline_anomalies(
-    claim: Dict[str, Any],
-    billing_items: list[Dict[str, Any]],
-) -> Dict[str, Any]:
+    claim: dict[str, Any],
+    billing_items: list[dict[str, Any]],
+) -> dict[str, Any]:
 
     return TimelineDetector().detect(
         claim,

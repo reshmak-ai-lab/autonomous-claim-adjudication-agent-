@@ -2,7 +2,7 @@
 Final decision guardrails.
 """
 
-from typing import list
+from typing import Any
 
 
 class DecisionValidator:

@@ -6,7 +6,7 @@ when LangSmith is disabled or credentials are unavailable.
 """
 
 import os
-from typing import Any, dict, Optional
+from typing import Any, Optional
 
 
 def is_langsmith_enabled() -> bool:

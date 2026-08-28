@@ -5,7 +5,7 @@ Attempts to identify procedures that may have been billed separately
 even though they could represent components of a bundled service.
 """
 
-from typing import Any, Dict, list
+from typing import Any 
 
 from .fraud_rules import make_finding
 
@@ -33,8 +33,8 @@ class UnbundlingDetector:
 
     def detect(
         self,
-        billing_items: list[Dict[str, Any]],
-    ) -> Dict[str, Any]:
+        billing_items: list[dict[str, Any]],
+    ) -> dict[str, Any]:
 
         findings = []
 
@@ -110,7 +110,7 @@ class UnbundlingDetector:
 
 
 def detect_unbundling(
-    billing_items: list[Dict[str, Any]],
-) -> Dict[str, Any]:
+    billing_items: list[dict[str, Any]],
+) -> dict[str, Any]:
 
     return UnbundlingDetector().detect(billing_items)

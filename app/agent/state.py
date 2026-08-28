@@ -1,20 +1,16 @@
 """
-State definition for the claim adjudication agent.
+Agent state definitions for the claim adjudication workflow.
 """
 
-from __future__ import annotations
-
-from typing import Any, dict, list, Optional, Typeddict
+from typing import Any, TypedDict, Optional
 
 
-class AgentState(Typeddict, total=False):
-
-    # ------------------------------------------------------------------
-    # Claim context
-    # ------------------------------------------------------------------
-
-    claim_id: str
+class AgentState(TypedDict, total=False):
     claim: dict[str, Any]
+    decision: str | None
+    errors: list[str]
+    result: dict[str, Any]
+
 
     patient_id: Optional[str]
     policy_id: Optional[str]

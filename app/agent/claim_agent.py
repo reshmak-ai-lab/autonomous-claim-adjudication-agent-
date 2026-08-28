@@ -7,7 +7,7 @@ logic remains in the appropriate modules.
 
 from __future__ import annotations
 
-from typing import Any, dict, Optional
+from typing import Any, Optional
 
 from .state import AgentState
 from .workflows.claim_workflow import ClaimWorkflow

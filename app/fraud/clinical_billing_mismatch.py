@@ -7,7 +7,7 @@ This is a rule-based screening layer. It should flag cases for
 further review rather than independently determine fraud.
 """
 
-from typing import Any, Dict, list
+from typing import Any
 
 from .fraud_rules import make_finding
 
@@ -65,8 +65,8 @@ class ClinicalBillingMismatchDetector:
         self,
         diagnosis_data: Any,
         clinical_data: Any,
-        billing_items: list[Dict[str, Any]],
-    ) -> Dict[str, Any]:
+        billing_items: list[dict[str, Any]],
+    ) -> dict[str, Any]:
 
         findings = []
 
@@ -200,8 +200,8 @@ class ClinicalBillingMismatchDetector:
 def detect_clinical_billing_mismatch(
     diagnosis_data: Any,
     clinical_data: Any,
-    billing_items: list[Dict[str, Any]],
-) -> Dict[str, Any]:
+    billing_items: list[dict[str, Any]],
+) -> dict[str, Any]:
 
     return ClinicalBillingMismatchDetector().detect(
         diagnosis_data,

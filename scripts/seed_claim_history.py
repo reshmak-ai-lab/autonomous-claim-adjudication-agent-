@@ -18,7 +18,7 @@ import json
 import logging
 import sys
 from pathlib import Path
-from typing import Any, dict, list
+from typing import Any
 
 
 # ---------------------------------------------------------------------

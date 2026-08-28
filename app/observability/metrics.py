@@ -10,7 +10,7 @@ from __future__ import annotations
 import threading
 import time
 from collections import defaultdict
-from typing import Any, Dict
+from typing import Any
 
 
 class MetricsCollector:

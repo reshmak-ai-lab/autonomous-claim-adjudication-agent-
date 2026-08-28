@@ -5,7 +5,7 @@ All final claim decisions should pass through this pipeline
 before being returned to the caller.
 """
 
-from typing import Any, Dict
+from typing import Any
 
 from .models import (
     GuardrailCheck,
@@ -41,9 +41,9 @@ class GuardrailPipeline:
 
     def run(
         self,
-        claim: Dict[str, Any],
-        decision_result: Dict[str, Any],
-        policy_result: Dict[str, Any] | None = None,
+        claim: dict[str, Any],
+        decision_result: dict[str, Any],
+        policy_result: dict[str, Any] | None = None,
     ) -> GuardrailResult:
 
         result = GuardrailResult(

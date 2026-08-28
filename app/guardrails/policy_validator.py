@@ -5,7 +5,7 @@ Checks whether the final decision is consistent with
 the policy evaluation result.
 """
 
-from typing import Any, Dict, list
+from typing import Any
 
 
 class PolicyValidator:
@@ -20,7 +20,7 @@ class PolicyValidator:
     def validate(
         self,
         decision: str,
-        policy_result: Dict[str, Any] | None = None,
+        policy_result: dict[str, Any] | None = None,
     ) -> list[str]:
 
         errors = []

@@ -8,7 +8,7 @@ The FraudEngine provides fraud-risk signals to the adjudication layer.
 It does NOT make the final claim adjudication decision.
 """
 
-from typing import Any, Dict, list
+from typing import Any 
 
 from .anomaly_detector import AnomalyDetector
 from .clinical_billing_mismatch import ClinicalBillingMismatchDetector
@@ -57,12 +57,12 @@ class FraudEngine:
 
     def analyze(
         self,
-        claim: Dict[str, Any],
-        billing_items: list[Dict[str, Any]] | None = None,
+        claim: dict[str, Any],
+        billing_items: list[dict[str, Any]] | None = None,
         diagnosis_data: Any = None,
         clinical_data: Any = None,
-        historical_claims: list[Dict[str, Any]] | None = None,
-    ) -> Dict[str, Any]:
+        historical_claims: list[dict[str, Any]] | None = None,
+    ) -> dict[str, Any]:
 
         billing_items = billing_items or []
 
@@ -222,11 +222,11 @@ class FraudEngine:
 
     @staticmethod
     def _evaluate_claim_rules(
-        claim: Dict[str, Any],
-    ) -> Dict[str, Any]:
+        claim: dict[str, Any],
+    ) -> dict[str, Any]:
 
         flags: list[str] = []
-        evidence: list[Dict[str, Any]] = []
+        evidence: list[dict[str, Any]] = []
 
         financials = claim.get(
             "financials",
@@ -628,7 +628,7 @@ class FraudEngine:
     @staticmethod
     def _calculate_score(
         detector_results: list[
-            Dict[str, Any]
+            dict[str, Any]
         ],
     ) -> float:
 
@@ -770,8 +770,8 @@ class FraudEngine:
 
     @staticmethod
     def _extract_historical_claims(
-        claim: Dict[str, Any],
-    ) -> list[Dict[str, Any]]:
+        claim: dict[str, Any],
+    ) -> list[dict[str, Any]]:
 
         historical = claim.get(
             "historical_claims"
@@ -792,16 +792,16 @@ class FraudEngine:
 
 
 def analyze_claim_for_fraud(
-    claim: Dict[str, Any],
+    claim: dict[str, Any],
     billing_items: list[
-        Dict[str, Any]
+        dict[str, Any]
     ] | None = None,
     diagnosis_data: Any = None,
     clinical_data: Any = None,
     historical_claims: list[
-        Dict[str, Any]
+        dict[str, Any]
     ] | None = None,
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
 
     engine = FraudEngine()
 

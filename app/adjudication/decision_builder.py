@@ -2,7 +2,7 @@
 Build the final claim decision from financial and policy results.
 """
 
-from typing import Any, dict
+from typing import Any
 
 
 class DecisionBuilder:

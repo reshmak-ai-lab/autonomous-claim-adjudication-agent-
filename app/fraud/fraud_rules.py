@@ -5,7 +5,7 @@ Keep configurable thresholds here instead of hard-coding them
 inside individual fraud detectors.
 """
 
-from typing import Any, Dict
+from typing import Any 
 
 
 # ---------------------------------------------------------------------------
@@ -106,7 +106,7 @@ def make_finding(
     severity: str,
     reason: str,
     evidence: Any = None,
-) -> Dict[str, Any]:
+) -> dict[str, Any]:
     """
     Standard finding format used by all fraud detectors.
     """

@@ -6,7 +6,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from enum import Enum
-from typing import Any, Dict, list
+from typing import Any
 
 
 class GuardrailStatus(str, Enum):
@@ -25,7 +25,7 @@ class GuardrailCheck:
 
     message: str
 
-    details: Dict[str, Any] = field(
+    details: dict[str, Any] = field(
         default_factory=dict
     )
 
@@ -49,7 +49,7 @@ class GuardrailResult:
         default_factory=list
     )
 
-    metadata: Dict[str, Any] = field(
+    metadata: dict[str, Any] = field(
         default_factory=dict
     )
 
@@ -82,7 +82,7 @@ class GuardrailResult:
             if self.status != GuardrailStatus.FAIL:
                 self.status = GuardrailStatus.WARNING
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
 
         return {
             "passed": self.passed,

@@ -52,7 +52,7 @@ workflow = get_workflow()
 # UTILITY FUNCTIONS
 # ============================================================
 
-def flatten_dict(data, parent_key=""):
+def flatten_Dict(data, parent_key=""):
     """Flatten nested claim/workflow data into Field/Value rows."""
     rows = []
 

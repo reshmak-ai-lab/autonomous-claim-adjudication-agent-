@@ -12,7 +12,7 @@ import uuid
 from contextlib import contextmanager
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
-from typing import Any, Dict, Generator, List, Optional
+from typing import Any, Generator, Optional
 
 
 @dataclass

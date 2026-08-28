@@ -5,7 +5,7 @@ Detects unusually high claim amounts and unusually high procedure
 amounts based on available historical/reference information.
 """
 
-from typing import Any, Dict, list
+from typing import Any 
 
 from .fraud_rules import ANOMALY_RULES, make_finding
 
@@ -14,10 +14,10 @@ class AnomalyDetector:
 
     def detect(
         self,
-        claim: Dict[str, Any],
-        billing_items: list[Dict[str, Any]],
-        historical_claims: list[Dict[str, Any]] | None = None,
-    ) -> Dict[str, Any]:
+        claim: dict[str, Any],
+        billing_items: list[dict[str, Any]],
+        historical_claims: list[dict[str, Any]] | None = None,
+    ) -> dict[str, Any]:
 
         findings = []
 
@@ -151,10 +151,10 @@ class AnomalyDetector:
 
 
 def detect_anomalies(
-    claim: Dict[str, Any],
-    billing_items: list[Dict[str, Any]],
-    historical_claims: list[Dict[str, Any]] | None = None,
-) -> Dict[str, Any]:
+    claim: dict[str, Any],
+    billing_items: list[dict[str, Any]],
+    historical_claims: list[dict[str, Any]] | None = None,
+) -> dict[str, Any]:
 
     return AnomalyDetector().detect(
         claim,

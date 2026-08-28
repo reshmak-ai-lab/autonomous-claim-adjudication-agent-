@@ -4,7 +4,7 @@ Financial deduction engine.
 Calculates eligible amount and deductions before final adjudication.
 """
 
-from typing import Any, dict, List
+from typing import Any
 
 
 class DeductionEngine:

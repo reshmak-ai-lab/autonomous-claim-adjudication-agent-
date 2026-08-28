@@ -10,7 +10,7 @@ It does not perform document extraction or policy retrieval itself.
 Those responsibilities belong to their respective modules.
 """
 
-from typing import Any, dict, List
+from typing import Any
 
 from .deduction_engine import DeductionEngine
 from .decision_builder import DecisionBuilder
@@ -29,10 +29,10 @@ class Adjudicator:
         self,
         claim: dict[str, Any],
         financial_inputs: dict[str, Any] | None = None,
-        policy_evidence: List[dict[str, Any]] | None = None,
-        clinical_evidence: List[dict[str, Any]] | None = None,
-        billing_evidence: List[dict[str, Any]] | None = None,
-        rule_evidence: List[dict[str, Any]] | None = None,
+        policy_evidence: list[dict[str, Any]] | None = None,
+        clinical_evidence: list[dict[str, Any]] | None = None,
+        billing_evidence: list[dict[str, Any]] | None = None,
+        rule_evidence: list[dict[str, Any]] | None = None,
         fraud_result: dict[str, Any] | None = None,
         query_required: bool = False,
         policy_issue: bool = False,
